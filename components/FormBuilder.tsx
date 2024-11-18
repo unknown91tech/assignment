@@ -108,7 +108,7 @@ const FormBuilder = () => {
         })),
       };
   
-      const response = await axios.post("http://localhost:3000/api/forms", formData);
+      const response = await axios.post("https://assignment-ggcv-five.vercel.app/api/forms", formData);
       console.log('Form saved:', response.data);
       router.push("/");
     } catch (error) {

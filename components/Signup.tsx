@@ -107,7 +107,7 @@ export function Signup() {
           Minimum length is 8 characters.
         </p>
         <button onClick={async () => {
-                            const response = await axios.post("http://localhost:3000/api/user", {
+                            const response = await axios.post("https://assignment-ggcv-five.vercel.app/api/user", {
                                 username,
                                 password,
                                 FirstName,
