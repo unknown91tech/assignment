@@ -84,11 +84,10 @@ export function Signin() {
               password,
             });
 
-            // Handle login success or failure here
             if (response.status === 200) {
-              router.push("/user");  // Redirect to the homepage after successful login
+              router.push("/user");  
             } else {
-              // Handle error (for example, display an error message)
+                
             }
           }}
           type="button"
@@ -102,7 +101,7 @@ export function Signin() {
           <a href="#" className="text-yellow-400 hover:underline">
             Terms of Service
           </a>
-          . We’ll occasionally send you account-related emails.
+          . We'll occasionally send you account-related emails.
         </p>
 
         <p className="text-center text-sm mt-4">

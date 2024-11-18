@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const SECRET_KEY = process.env.SECRET_KEY; 
+const SECRET_KEY = process.env.SECRET_KEY || ""; 
 
 if (!SECRET_KEY) {
     throw new Error("SECRET_KEY is not defined in the environment variables");

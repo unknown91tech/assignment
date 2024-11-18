@@ -73,7 +73,6 @@ const FormBuilder = () => {
     setSelectedOptions(event.target.value);
   };
 
-  // Handle file selection and open the file input dialog
   const handleAddImageClick = () => {
     setOpenImageDialog(true);
   };

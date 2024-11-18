@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
       });
 
       // Create options for the question
-      const optionPromises = q.options.map((optionText) =>
+      const optionPromises = q.options.map((optionText: any) =>
         client.option.create({
           data: {
             text: optionText,
@@ -53,31 +53,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ id: form.id });
   } catch (error) {
     console.error("Error saving form:", error);
-    return NextResponse.json({ error: 'Error saving form: ' + error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Error saving form '}, { status: 500 });
   }
 }
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-  const { id } = req.query;
-  try {
-    const form = await client.form.findUnique({
-      where: { id: Number(id) },
-      include: {
-        questions: {
-          include: {
-            options: true,
-          },
-        },
-      },
-    });
-
-    if (!form) {
-      return res.status(404).json({ error: "Form not found" });
-    }
-
-    res.status(200).json(form);
-  } catch (error) {
-    console.error("Error fetching form:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-}
